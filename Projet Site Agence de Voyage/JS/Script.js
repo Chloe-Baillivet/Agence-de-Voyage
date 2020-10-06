@@ -22,20 +22,24 @@ function jour(DateA,DateD){
     console.log(diffDays +"jh");
      return (diffDays);    
 }
+
 function CalculPriXParJour(NbA,NbE,Petitdej){
-    if (value(Petitdej)=='oui') {
+    console.log(Petitdej)
+    console.log(NbA)
+    if (value(Petitdej)=="oui") {
         let prixparA=
         NbA*90
         let prixparE=
         NbE*70
-        console.log(prixparA)
+       
         return (prixparA+prixparE)
     }
     else {
         let prixparA=
         NbA*85
         let prixparE=
-        NbE*65
+        NbE*65 
+        console.log(prixparA)
         return (prixparA+prixparE)
     }
 }
