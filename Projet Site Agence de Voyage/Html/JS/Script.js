@@ -9,4 +9,9 @@ function CalculDuPrix(){
     document.getElementById('resultat').innerHTML=(nbjour*PrixParJour)
 }
 
-function
+function jour(DateA,DateD){
+    document.getElementById('test').innerHTML=(DateD-DateA)
+}
+function CalculPriXParJour(A,B,C){
+    return 2
+}
