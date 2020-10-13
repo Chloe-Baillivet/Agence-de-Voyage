@@ -1,9 +1,10 @@
 function CalculDuPrix(){
-    let nbjour =
-    jour(document.getElementById('Date-d-arrivee').value,
-    document.getElementById('Date-de-depart').value)
+    DA = new Date(document.getElementById('Date-d-arrivee').value).getTime()
     
-    console.log(document.getElementById('Date-d-arrivee').value)
+    DD = new Date(document.getElementById('Date-de-depart').value).getTime()
+    console.log(DA+"---"+DD)
+    let nbjour =
+    jour(DA,DD)
     let PrixParJour =
     CalculPrixParJour(document.getElementById('Nb-Adulte').value,
     document.getElementById('Nb-Enfant').value,
@@ -12,21 +13,12 @@ function CalculDuPrix(){
 }
 
 function jour(DateA,DateD){
-   // document.getElementById('test').innerHTML=(DateD-DateA)
-  //  var diffDays =
-    const diffTime = Math.abs(DateA - DateD);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-        
-    // DateD.getDate() - DateA.getDate(); 
-    console.log(diffTime + "good");
-    console.log(diffDays +"bad");
-     return (diffDays);    
+   return((DD-DA)/86400000)
 }
 
 function CalculPrixParJour(NbA,NbE,Petitdej){
     console.log(Petitdej)
-    console.log(NbA)
-    if ('Petitdej'=='true') {
+    if (Petitdej) {
         let prixparA=
         NbA*90
         let prixparE=
