@@ -7,7 +7,7 @@ function CalculDuPrix(){
     let PrixParJour =
     CalculPrixParJour(document.getElementById('Nb-Adulte').value,
     document.getElementById('Nb-Enfant').value,
-    document.getElementsByClassName('Petit-dejeuner').value)
+    document.getElementByClassName('Petit-dejeuner').value)
     document.getElementById('resultat').innerHTML=(nbjour*PrixParJour)
 }
 
