@@ -8,7 +8,7 @@ function CalculDuPrix(){
     CalculPrixParJour(document.getElementById('Nb-Adulte').value,
     document.getElementById('Nb-Enfant').value,
     document.getElementByClassName('Petit-dejeuner').value)
-    document.getElementById('resultat').innerHTML=(nbjour*PrixParJour)
+    return(document.getElementById('resultat').innerHTML=(nbjour*PrixParJour))
 }
 
 function jour(DateA,DateD){
@@ -23,7 +23,7 @@ function jour(DateA,DateD){
      return (diffDays);    
 }
 
-function CalculPriXParJour(NbA,NbE,Petitdej){
+function CalculPrixParJour(NbA,NbE,Petitdej){
     console.log(Petitdej)
     console.log(NbA)
     if (value(Petitdej)=="oui") {
