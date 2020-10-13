@@ -1,11 +1,11 @@
 function CalculDuPrix(){
-    let nbjour=
+    let nbjour =
     jour(document.getElementById('Date-d-arrivee').value,
     document.getElementById('Date-de-depart').value)
     
     console.log(document.getElementById('Date-d-arrivee').value)
-    let PrixParJour=
-    CalculPriXParJour(document.getElementById('Nb-Adulte').value,
+    let PrixParJour =
+    CalculPrixParJour(document.getElementById('Nb-Adulte').value,
     document.getElementById('Nb-Enfant').value,
     document.getElementsByClassName('Petit-dejeuner').value)
     document.getElementById('resultat').innerHTML=(nbjour*PrixParJour)
