@@ -2,7 +2,6 @@ function CalculDuPrix(){
     DA = new Date(document.getElementById('Date-d-arrivee').value).getTime()
     
     DD = new Date(document.getElementById('Date-de-depart').value).getTime()
-    console.log(DA+"---"+DD)
     let nbjour =
     jour(DA,DD)
     let PrixParJour =
