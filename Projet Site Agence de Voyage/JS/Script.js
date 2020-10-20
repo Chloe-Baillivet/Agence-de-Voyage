@@ -38,11 +38,10 @@ function CalculPrixParJour(NbA, NbE, Petitdej) {
 window.onload = function () {
     var tableaudestination = ["Paris", "Rome", "Sydney", "Wellington", "Safari", "Arctique"];
     for (var i = 0; i < tableaudestination.length; i++) {
-        console.log(tableaudestination[i])
         var Cells = document.getElementById(tableaudestination[i]).cells
         for (var j = 0; j < Cells.length; j++) {
-            if (Cells[j] == "True") {
-                console.log(tableaudestination[i])
+            if ((Cells[j].className == "favori") && (Cells[j].textContent == "True")) {
+               //ajouter la ligne au tableau favori
             }
         }
     }
