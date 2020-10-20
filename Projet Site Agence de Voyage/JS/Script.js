@@ -34,3 +34,4 @@ function CalculPrixParJour(NbA,NbE,Petitdej){
         return (prixparA+prixparE)
     }
 }
+
