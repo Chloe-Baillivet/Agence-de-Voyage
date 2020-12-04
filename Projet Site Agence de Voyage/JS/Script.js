@@ -35,9 +35,20 @@ function CalculPrixParJour(NbA, NbE, Petitdej) {
     }
 };
 
-TableauDesDestination = [["Paris","Voici la description pour Paris",85,"Temp",False,"Images/Paris.png"],
-["Rome","Voici la description pour Rome",95,"Temp",False,"Images/Rome.png"],
-["Sydney","Voici la description pour Sydney",100,"Temp",True,"Images/Sydney.png"],
-["Wellington","Voici la description pour Paris",95,"Temp",False,"Images/Wellington.png"],
-["Safari","Voici la description pour un Safari",110,"Temp",True,"Images/Safari.png"],
-["Arctique","Voici la description pour un voyage vers l'Arctique",150,"Temp",True,"Images/Nord.png"]];
+TableauDesDestination = [["Paris","Voici la description pour Paris",85,"Temp","False","Images/Paris.png"],
+["Rome","Voici la description pour Rome",95,"Temp","False","Images/Rome.png"],
+["Sydney","Voici la description pour Sydney",100,"Temp","True","Images/Sydney.png"],
+["Wellington","Voici la description pour Paris",95,"Temp","False","Images/Wellington.png"],
+["Safari","Voici la description pour un Safari",110,"Temp","True","Images/Safari.png"],
+["Arctique","Voici la description pour un voyage vers l'Arctique",150,"Temp","True","Images/Nord.png"]];
+
+//fonction qui créer un nouveau tableau avec les favoris
+window.onload = function NouveauTableau () {
+    TableauFavori = []
+    for (index = 0; index < TableauDesDestination.length; index++){
+        if (TableauDesDestination[index][4] == "True") {
+            TableauFavori.push(TableauDesDestination[index])
+        } 
+    }
+    return(document.getElementById("favori").innerHTML = TableauFavori)
+}
