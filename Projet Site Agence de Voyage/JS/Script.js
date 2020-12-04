@@ -43,12 +43,14 @@ TableauDesDestination = [["Paris","Voici la description pour Paris",85,"Temp","F
 ["Arctique","Voici la description pour un voyage vers l'Arctique",150,"Temp","True","Images/Nord.png"]];
 
 //fonction qui créer un nouveau tableau avec les favoris
-window.onload = function NouveauTableau () {
+function NouveauTableau () {
     TableauFavori = []
     for (index = 0; index < TableauDesDestination.length; index++){
         if (TableauDesDestination[index][4] == "True") {
             TableauFavori.push(TableauDesDestination[index])
         } 
     }
-    return(document.getElementById("favori").innerHTML = TableauFavori)
+    return(TableauFavori)
 }
+
+//Création 
