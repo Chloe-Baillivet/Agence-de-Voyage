@@ -4,10 +4,13 @@
         <title>Formulaire</title>
         <script src='../JS/Script.js'></script>
         <link rel="stylesheet" href="../CSS/styles.css">
+        <script>
+            window.onload = BoutonRetour()
+        </script>
     </head>
 
     <body>
-        <header>
+        <header id="haut">
             <nav>
                 <a href="Home.html"><img src="Images/logo-mountains.png" alt=""></a>
                 <input type="text" placeholder="Search..." autocomplete="on">
@@ -47,16 +50,16 @@
                 <input type="tel" id="TelephonePortable" name="cc-number" >
 
                 <label for="Date-d-arrivee">Date d'arrivée</label>
-                <input type="date" id="Date-d-arrivee" required >
+                <input type="date" id="Date-d-arrivee" name="DA" required >
 
                 <label for="Date-de-depart">Date de départ</label>
-                <input type="date" id="Date-de-depart" required >
+                <input type="date" id="Date-de-depart" name="DD" required >
 
                 <label for="Nb-Adulte">Nombre d'Adulte (+12 ans)</label>
-                <input type="number" id="Nb-Adulte" min="1" max="6" required>
+                <input type="number" id="Nb-Adulte" name="NA" min="1" max="6" required>
 
                 <label for="Nb-Enfant">Nombre d'Enfant (-12 ans)</label>
-                <input type="number" id="Nb-Enfant" min='0' max="6" required>
+                <input type="number" id="Nb-Enfant" name="NE" min='0' max="6" required>
 
                 <p>Petit déjeuner compris</p>
                 <input type="radio" id='Petit-dejeunerO' name='PetitDejeuner' value="oui" checked><label for="Petit-dejeunerO">Oui</label>
@@ -64,6 +67,7 @@
 
                 <label for="Renseignement">Avez-vous des questions ?</label>
                 <input type="text" id="Renseignement">
+                <input type="text" id="prix" name="prix">
 
                 <input type="submit" value="Envoyer">
                 <input type="reset" value="Réinitialiser">
@@ -75,8 +79,8 @@
             <p id='resultat'>
 
             </p>
-            <p id='test'>
-
-            </p>
-
+            <div><a id="cRetour" class="cInvisible" href="#haut"></a></div>
+            <script>
+                window.onload = Formulaire()
+            </script>
     </body>

@@ -3,10 +3,14 @@
     <head>
         <title>NousConctacter</title>
         <link rel="stylesheet" href="../CSS/styles.css">
+        <script src='../JS/Script.js'></script>
+        <script>
+            window.onload = BoutonRetour()
+        </script>
     </head>
 
     <body>
-        <header>
+        <header id="haut">
             <nav>
                 <a href="Home.html"><img src="Images/logo-mountains.png" alt=""></a>
                 <input type="text" placeholder="Search..." autocomplete="on">
@@ -25,5 +29,5 @@
             <a href="tel:0601010101">Appelez-nous</a>
             <a href="mailto:Marie.Arnaud@cpe.fr?subject=Demande%20de%20renseignements&body=Bonjour,%20je%20souhaiterais%20obtenir%20des%20renseignement%20sur">Envoyer un mail</a>
         </main>
-
+        <div><a id="cRetour" class="cInvisible" href="#haut"></a></div>
     </body>

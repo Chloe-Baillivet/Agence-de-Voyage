@@ -65,7 +65,7 @@ input.recherche{
     margin-top: auto;
     margin-bottom: auto;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
 }
 a#cRetour{
     border-radius:3px;
@@ -98,3 +98,33 @@ a#cRetour{
     bottom:20px;
     opacity:1;
   }
+img.Map{
+    max-width: 100%;
+    height:auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:10px
+};
+img.PhotoDestination {
+    max-width: 10%;
+    height:auto;
+    display: line;
+    margin-left: auto;
+    margin-right: auto;
+
+};
+
+h1#titre{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+div#MapMonde2{
+    position: relative;
+    bottom:528px
+}
+

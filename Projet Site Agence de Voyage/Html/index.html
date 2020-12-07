@@ -4,10 +4,13 @@
         <title>Home</title>
         <link rel="stylesheet" href="../CSS/styles.css">
         <script src='../JS/Script.js'></script>
+        <script>
+            window.onload = BoutonRetour()
+        </script>
     </head>
 
     <body>
-        <header>
+        <header id="haut">
             <nav id='gauche'>
                 <a href="Home.html"><img class="logo" src="Images/logo-mountains.png" alt="Accueil"></a>
                 <input class="recherche" id="searchbox" type="text" placeholder="Rechercher..." autocomplete="on">
@@ -24,7 +27,15 @@
         </header>
 
         <div>
-            <h1>Nos destination favorite</h1>
+            <h1>
+                Carte du monde
+            </h1>
+            <img class="Map" src="Images/MapMonde.svg" alt="">
+            <div id="MapMonde2"><canvas id="MapMonde" width="950" height="528"></canvas></div>
+            
+
+
+            <h1 id="titre">Nos destination favorite</h1>
             <table id="favoris">
                 <tbody>
                     <tr>
@@ -38,4 +49,10 @@
         <footer>
 
         </footer>
+        <div><a id="cRetour" class="cInvisible" href="#haut"></a></div>
+        <script>
+            document.addEventListener('DOMContentLoaded',RemplissageFav())
+            document.addEventListener('DOMContentLoaded',MapMonde())
+            document.getElementById("MapMonde").onmouseover = function() {MouseOver()}
+        </script>
     </body>
