@@ -32,7 +32,7 @@ function CalculDuPrix() {
 };
 
 function jour(DateA, DateD) {
-    return ((DD - DA) / 86400000)
+    return ((DateD - DateA) / 86400000)
 };
 
 function CalculPrixParJour(NbA, NbE, Petitdej) {
@@ -141,3 +141,8 @@ function Remplissage(){
     }
 }
 */
+function BoutonRetour() {
+    window.onscroll = function(ev) {
+      document.getElementById("cRetour").className = (window.pageYOffset > 50) ? "cVisible" : "cInvisible";
+    };
+};
