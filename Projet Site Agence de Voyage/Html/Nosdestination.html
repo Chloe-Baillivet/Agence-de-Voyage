@@ -12,7 +12,7 @@
     <body>
         <header id="haut">
             <nav>
-                <a href="Home.html"><img src="Images/logo-mountains.png" alt=""></a>
+                <a href="Home.html" id="lien"><img src="Images/logo-mountains.png" alt=""></a>
                 <input type="text" placeholder="Search..." autocomplete="on">
             </nav>
             <nav>
@@ -26,6 +26,15 @@
         </header>
 
         <div>
+            <form onchange="filtre()" id="filtre">
+                <label for="prixmin">Prix minimum</label>
+                <input type="text" name="prixmin" id="prixmin">
+                <label for="prixmax">Prix maximum</label>
+                <input type="text" name="prixmax" id="prixmax">
+                <input type="radio" name="PetitDej" id="PetitDej"><label for="PetitDej">Petit Déjeuner Compris</label>
+                <input type="radio" name="Animaux" id="Animaux"><label for="Animaux">Animaux acceptés</label>
+            </form>
+            
             <table id="tableau">
                 <tbody>
                     <tr>
@@ -39,5 +48,6 @@
         <div><a id="cRetour" class="cInvisible" href="#haut"></a></div>
         <script>
             document.addEventListener('DOMContentLoaded',Remplissage())
+
         </script>
     </body>

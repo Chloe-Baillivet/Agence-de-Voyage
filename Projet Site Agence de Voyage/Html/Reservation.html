@@ -33,7 +33,7 @@
             <p id="description">
                 
             </p>
-            <form action="Recapitulatif.html" onchange="CalculDuPrix()">
+            <form action="Recapitulatif.html" id="lien" onchange="CalculDuPrix()">
                 <label for="Prenom">Prénom</label>
                 <input type="text" id="Prenom" name="given-name" value="christophe" required>
 
@@ -67,7 +67,8 @@
 
                 <label for="Renseignement">Avez-vous des questions ?</label>
                 <input type="text" id="Renseignement">
-                <input type="text" id="prix" name="prix">
+                <input type="hidden" id="prix" name="prix">
+                <input type="hidden" id="id" name="id">
 
                 <input type="submit" value="Envoyer">
                 <input type="reset" value="Réinitialiser">
