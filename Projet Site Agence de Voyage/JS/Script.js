@@ -155,6 +155,8 @@ function BoutonRetour() {
         document.getElementById("cRetour").className = (window.pageYOffset > 50) ? "cVisible" : "cInvisible";
     };
 };
+
+//fonction qui crée les cercles pour indiquer les pays --> index.html
 function MapMonde() {
     //France
     var id = document.getElementById("MapMonde");
@@ -209,6 +211,7 @@ function MapMonde() {
     context.stroke();
 }
 
+//fonction qui verifie la connexion au site -->Compte.html
 function Identification() {
     for (i = 0; i < Identifiant.length; i++) {
         if (document.getElementById("Username").value == Identifiant[i][0]) {
@@ -224,6 +227,8 @@ function Identification() {
         }
     }
 }
+
+//fonction qui remet les informations du formulaire -->Récapitulatif.html
 function recapitulatif() {
     var prenom = new URLSearchParams(window.location.search).get("given-name")
     document.getElementById("prenom").innerHTML = prenom
@@ -247,7 +252,7 @@ function recapitulatif() {
     document.getElementById("destination").innerHTML = TableauDesDestination[destination - 1][0]
     document.getElementById("description").innerHTML = TableauDesDestination[destination - 1][3]
 };
-
+//fonction qui filtre les résultats des destinations -->NosDestination.html
 function filtre() {
     var prixmin = document.getElementById("prixmin").value
     var prixmax = document.getElementById("prixmax").value
