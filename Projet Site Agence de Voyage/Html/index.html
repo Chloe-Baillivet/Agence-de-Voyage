@@ -11,16 +11,14 @@
 
     <body>
         <header id="haut">
+            <a href="index.html" ><img class="logo" src="Images/logo-mountains.png" alt="Accueil"></a>
             <nav id='gauche'>
-                <a href="Home.html"><img class="logo" src="Images/logo-mountains.png" alt="Accueil"></a>
                 <input class="recherche" id="searchbox" type="text" placeholder="Rechercher..." autocomplete="on">
-                <input class="recherche" id= "button-submit" type= "submit" value= "Search"/>
-            </nav>
-            <nav id='droite'> 
-                <a href="Compte.html"><img class="img" src="Images/icone-compte.png" alt=""></a>
+                <input class="recherche" id= "button-submit" type= "submit" value= "Ok"/>
+                <a href="Compte.html"><img src="Images/icone-compte.png" alt="" class="compte"></a>
             </nav>
             <nav id='menu'>
-                <a href="Nosdestination.html">Nos destination</a>
+                <a href="Nosdestinations.html">Nos destination</a>
                 <a href="Presentation.html">Présentation de l'agence</a>
                 <a href="NousContacter.html">Nous Contacter</a>
             </nav>
@@ -53,6 +51,5 @@
         <script>
             document.addEventListener('DOMContentLoaded',RemplissageFav())
             document.addEventListener('DOMContentLoaded',MapMonde())
-            document.getElementById("MapMonde").onmouseover = function() {MouseOver()}
         </script>
     </body>

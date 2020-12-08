@@ -1,18 +1,19 @@
-TableauDesDestination = [["Paris", 1, "Reservation.html?id=1", "Voici la description pour Paris", 85, "Temp", "False", "Images/Paris.png", true, false],
-["Rome", 2, "Reservation.html?id=2", "Voici la description pour Rome", 95, "Temp", "False", "Images/Rome.png", true, false],
-["Sydney", 3, "Reservation.html?id=3", "Voici la description pour Sydney", 100, "Temp", "True", "Images/Sydney.png", true, true],
-["Wellington", 4, "Reservation.html?id=4", "Voici la description pour Wellington", 95, "Temp", "False", "Images/Wellington.png", true, false],
-["Safari", 5, "Reservation.html?id=5", "Voici la description pour un Safari", 110, "Temp", "True", "Images/Safari.png", true, false],
-["Arctique", 6, "Reservation.html?id=6", "Voici la description pour un voyage vers l'Arctique", 150, "Temp", "True", "Images/Nord.png", false, false]];
-
+TableauDesDestination = [["Paris", 1, "Reservation.html?id=1", "La ville lumière est souvent considérée comme l’une des plus belles villes au monde.Il faut reconnaître son charme certain qui déborde de culture, d’histoire et surtout, de vie. Au-delà de ses sites touristiques, elle regorge de secrets et de richesses. Elle se découvre et se redécouvre à tout moment de l’année: les cafés, le Louvre, la Tour Eiffel, le marais, le quartier latin ou Montmartre.", 85, "Temp", "False", "Images/Paris.png", true, false],
+["Rome", 2, "Reservation.html?id=2", "Que vous partiez pour une semaine ou seulement un week-end, vous ne manquerez pas la place Saint Pierre de Rome et sa célèbre Basilique, véritable prouesse architecturale. Le Vatican est un passage obligé car c'est ici que vous pourrez admirer l'un des chefs d'œuvres majeurs de l'histoire de l'art, la Chapelle Sixtine, peintes par Michel-Ange, Le Pérugin et Botticelli ! Le Colisée ou la Villa Médicis sont d'autres lieux incontournables de la ville.", 95, "Temp", "False", "Images/Rome.png", true, false],
+["Sydney", 3, "Reservation.html?id=3", "En rassemblant trois des emblèmes du pays, l’Harbour Bridge, l’Opera House et Bondi Beach, Sydney prend facilement des allures de capitale. Ville moderne et cosmopolite, Sydney est célèbre à travers le monde. Construite autour de l’une des plus belles baies du monde, la ville est dotée de nombreux atouts naturels tels que de magnifiques jardins publics, des îles de la baie et de rives préservées.", 100, "Temp", "True", "Images/Sydney.png", true, true],
+["Wellington", 4, "Reservation.html?id=4", "La capitale de la Nouvelle-Zélande se situe sur le détroit de Cook, c'est à dire au Sud de l'île du Nord. Son environnement est propice aux sports en pleine nature comme le VTT, kayak, randonnée, etc... Ici, on aime le vin et les bonnes choses. La ville est paisible et abrite les bâtiments gouvernementaux ainsi que de nombreux musées. Prenez le funiculaire de Wellington pour avoir une vue panoramique de la ville sur la baie. Le soir, profitez de la vie nocturne très animée.", 95, "Temp", "False", "Images/Wellington.png", true, false],
+["Safari", 5, "Reservation.html?id=5", "Des grandes étendues des Makgadikgadi Pans au dédale sans fin du delta de l’Okavango, de Chobe au Morémi, à toute heure et en toute saison, un safari au Botswana est l’assurance de rapporter, dans votre tête aussi bien que sur votre carte mémoire, toutes les images d’une nature chaque jour surprenante.", 110, "Temp", "True", "Images/Safari.png", true, false],
+["Arctique", 6, "Reservation.html?id=6", "Partez en croisière Arctique à la découverte du Spitzberg, le rouyaume de l'ours blanc, et des icebergs géants duGroenland. Nous vous emmenons toujours dans les lieux les plus exceptionnels, notamment en Terre François-Joseph, Nouvelle-Zemble, et jusqu'à Wrangel!", 150, "Temp", "True", "Images/Nord.png", false, false]];
+//Tableau des destination [nom,id,lien,description,prix,temperature,favoris,image,petitdej,animaux]
 
 Identifiant = [["Administrateur", "123"],
 ["Administrateur2", "456"],
 ["Administrateur3", "789"]];
+//Tableau des comptes [identifiant, mot de passe]
 
 var prixA = 0;
 
-function Formulaire() {
+function Formulaire() {     //Rempli le formulaire en fonction de l'id dans l'url -->Réservation.html
     var sejour_id = new URLSearchParams(window.location.search).get("id")
     var prix = TableauDesDestination[sejour_id - 1][4]
     desciption = TableauDesDestination[sejour_id - 1][3]
@@ -20,11 +21,11 @@ function Formulaire() {
     document.getElementById('nom').innerHTML = nom
     document.getElementById('description').innerHTML = desciption
     prixA = prix
-    document.getElementById('id').value = TableauDesDestination[sejour_id-1][1]
-    
+    document.getElementById('id').value = TableauDesDestination[sejour_id - 1][1]
+
 };
 
-function CalculDuPrix() {
+function CalculDuPrix() {           //Calcul le prix en fonction du formulaire rempli,l'affiche et le met dans le formulaire  --> Réservation 
     DA = new Date(document.getElementById('Date-d-arrivee').value).getTime()
 
     DD = new Date(document.getElementById('Date-de-depart').value).getTime()
@@ -37,11 +38,11 @@ function CalculDuPrix() {
     return (document.getElementById('resultat').innerHTML = (nbjour * PrixParJour), document.getElementById("prix").value = (nbjour * PrixParJour))
 };
 
-function jour(DateA, DateD) {
+function jour(DateA, DateD) { // Calcul du temps de sejour --> CalculDuPrix()
     return ((DateD - DateA) / 86400000)
 };
 
-function CalculPrixParJour(NbA, NbE, Petitdej) {
+function CalculPrixParJour(NbA, NbE, Petitdej) {  //Calcul du prix par jour du sejour --> CalculDuPrix
     if (Petitdej) {
         let prixparA =
             NbA * (prixA + 12)
@@ -59,7 +60,7 @@ function CalculPrixParJour(NbA, NbE, Petitdej) {
     }
 };
 
-//fonction qui créer un nouveau tableau avec les favoris
+//fonction qui créer un nouveau tableau avec les favoris --> index.html
 function NouveauTableau() {
     TableauFavori = []
     for (index = 0; index < TableauDesDestination.length; index++) {
@@ -70,7 +71,7 @@ function NouveauTableau() {
     return (TableauFavori)
 };
 
-//Création de la fonction de remplissage home
+//fonction qui rempli le tableau html à partir du tableau javascript des favoris --> index.html
 
 function RemplissageFav() {
     var TableauFavoris = NouveauTableau()
@@ -110,6 +111,7 @@ function RemplissageFav() {
     }
 }
 
+//fonction qui rempli le tableau html à partir du tableau javascript des destinations --> NosDestinations.html
 function Remplissage() {
     for (i = 0; i < TableauDesDestination.length; i++) {
         var tableaua = document.getElementById("tableau")
@@ -147,7 +149,7 @@ function Remplissage() {
 
     }
 }
-
+//fonction qui permet de retourner en haut de la page --> Toutes les pages html
 function BoutonRetour() {
     window.onscroll = function (ev) {
         document.getElementById("cRetour").className = (window.pageYOffset > 50) ? "cVisible" : "cInvisible";
@@ -158,63 +160,53 @@ function MapMonde() {
     var id = document.getElementById("MapMonde");
     var context = id.getContext("2d")
     var france = new Path2D()
-    context.strokeStyle = "#FFFFFF00";
+    context.strokeStyle = "#FFFFFF50";
     france.arc(435, 140, 13, 0, 2 * Math.PI);
-    context.fillStyle = "#FFFFFF00";
+    context.fillStyle = "#FFFFFF50";
     context.fill(france);
     context.closePath();
     context.stroke();
 
     //Italie
     var italie = new Path2D()
-    context.strokeStyle = "#FFFFFF00";
+    context.strokeStyle = "#FFFFFF50";
     italie.arc(455, 160, 12, 0, 2 * Math.PI);
-    context.fillStyle = "#FFFFFF00";
+    context.fillStyle = "#FFFFFF50";
     context.fill(italie);
     context.closePath();
     context.stroke();
     //Australie
     var australie = new Path2D()
-    context.strokeStyle = "#FFFFFF00";
+    context.strokeStyle = "#FFFFFF50";
     australie.arc(760, 360, 50, 0, 2 * Math.PI);
-    context.fillStyle = "#FFFFFF00";
+    context.fillStyle = "#FFFFFF50";
     context.fill(australie);
     context.closePath();
     context.stroke();
     //NouvelleZelande
     var NouvelleZelande = new Path2D()
-    context.strokeStyle = "#FFFFFF00";
+    context.strokeStyle = "#FFFFFF50";
     NouvelleZelande.arc(770, 300, 15, 0, 2 * Math.PI);
-    context.fillStyle = "#FFFFFF00";
+    context.fillStyle = "#FFFFFF50";
     context.fill(NouvelleZelande);
     context.closePath();
     context.stroke();
     //Safari
     var Safari = new Path2D()
-    context.strokeStyle = "#FFFFFF00";
+    context.strokeStyle = "#FFFFFF50";
     Safari.arc(485, 340, 15, 0, 2 * Math.PI);
-    context.fillStyle = "#FFFFFF00";
+    context.fillStyle = "#FFFFFF50";
     context.fill(Safari);
     context.closePath();
     context.stroke();
     //Artique
     var Arctique = new Path2D()
-    context.strokeStyle = "#FFFFFF00";
+    context.strokeStyle = "#FFFFFF50";
     Arctique.arc(320, 65, 35, 0, 2 * Math.PI);
-    context.fillStyle = "#FFFFFF00";
+    context.fillStyle = "#FFFFFF50";
     context.fill(Arctique);
     context.closePath();
     context.stroke();
-}
-function MouseOver() {
-    event = event || window.event;
-    event.preventDefault();
-    var id = document.getElementById("MapMonde");
-    var context = id.getContext("2d")                         //Comment détecter le MouseOver au dessus d'une forme du canvas
-    var posX = event.pageX - context.offsetLeft;
-    var posY = event.pageY - context.offsetTop;
-    if ((posX, posY) in context.france) {
-    } //435,140,13, 0, 2 * Math.PI
 }
 
 function Identification() {
@@ -252,8 +244,8 @@ function recapitulatif() {
     var num = Math.round(Math.random() * 999999999)
     document.getElementById("num").innerHTML = num
     var destination = new URLSearchParams(window.location.search).get("id")
-    document.getElementById("destination").innerHTML = TableauDesDestination[destination-1][0]
-    document.getElementById("description").innerHTML = TableauDesDestination[destination-1][3]
+    document.getElementById("destination").innerHTML = TableauDesDestination[destination - 1][0]
+    document.getElementById("description").innerHTML = TableauDesDestination[destination - 1][3]
 };
 
 function filtre() {
@@ -262,55 +254,53 @@ function filtre() {
     var PetitDej = document.getElementById("PetitDej")
     var Animaux = document.getElementById("Animaux")
 
-        for (i = 0; i < TableauDesDestination.length; i++) {
-            if (prixmax != "" && prixmin != "") {
+    for (i = 0; i < TableauDesDestination.length; i++) {
+        if (prixmax != "" && prixmin != "") {
 
 
             if (TableauDesDestination[i][4] > prixmax || TableauDesDestination[i][4] < prixmin) {
                 var ligne = document.getElementById("ligne" + i)
                 ligne.style = "display:none;"
             }
-            if (TableauDesDestination[i][4] < prixmax && TableauDesDestination[i][4] > prixmin) {
-                var ligne = document.getElementById("ligne" + i)
-                ligne.style = "display:block;"
+            if (TableauDesDestination[i][4] <= prixmax && TableauDesDestination[i][4] >= prixmin) {
+                if (PetitDej.checked == true && TableauDesDestination[i][8] == true) {
+                    if (Animaux.checked == true && TableauDesDestination[i][9] == true) {
+                        var ligne = document.getElementById("ligne" + i)
+                        ligne.style = "display:block;"
+                    }
+                    if (Animaux.checked == false && TableauDesDestination[i][9] == false) {
+                        var ligne = document.getElementById("ligne" + i)
+                        ligne.style = "display:block;"
+                    }
+                }
+                if (PetitDej.checked == false && TableauDesDestination[i][8] == false) {
+                    if (Animaux.checked == true && TableauDesDestination[i][9] == true) {
+                        var ligne = document.getElementById("ligne" + i)
+                        ligne.style = "display:block;"
+                    }
+                    if (Animaux.checked == false && TableauDesDestination[i][9] == false) {
+                        var ligne = document.getElementById("ligne" + i)
+                        ligne.style = "display:block;"
+                    }
+                }
 
             }
 
         }
-        if( PetitDej.checked == true && TableauDesDestination[i][8] == false){
+        if (PetitDej.checked == true && TableauDesDestination[i][8] == false) {
             var ligne = document.getElementById("ligne" + i)
             ligne.style = "display:none;"
             console.log(PetitDej.checked)
         }
-        if( PetitDej.checked == false && TableauDesDestination[i][8] == true){
+        if (PetitDej.checked == false && TableauDesDestination[i][8] == true) {
             var ligne = document.getElementById("ligne" + i)
             ligne.style = "display:none;"
         }
-        if(PetitDej.checked == true && TableauDesDestination[i][8] == true){
-            if(Animaux.checked == true && TableauDesDestination[i][9] == true){
-                var ligne = document.getElementById("ligne" + i)
-                ligne.style = "display:block;"
-            }
-            if(Animaux.checked == false && TableauDesDestination[i][9] == false){
-                var ligne = document.getElementById("ligne" + i)
-                ligne.style = "display:block;"
-            }
-        }
-        if(PetitDej.checked == false && TableauDesDestination[i][8] == false){
-            if(Animaux.checked == true && TableauDesDestination[i][9] == true){
-                var ligne = document.getElementById("ligne" + i)
-                ligne.style = "display:block;"
-            }
-            if(Animaux.checked == false && TableauDesDestination[i][9] == false){
-                var ligne = document.getElementById("ligne" + i)
-                ligne.style = "display:block;"
-            }
-        }
-        if( Animaux.checked == true && TableauDesDestination[i][9] == false){
+        if (Animaux.checked == true && TableauDesDestination[i][9] == false) {
             var ligne = document.getElementById("ligne" + i)
             ligne.style = "display:none;"
         }
-        if( Animaux.checked == false && TableauDesDestination[i][9] == true){
+        if (Animaux.checked == false && TableauDesDestination[i][9] == true) {
             var ligne = document.getElementById("ligne" + i)
             ligne.style = "display:none;"
         }
