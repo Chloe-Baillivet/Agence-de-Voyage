@@ -27,12 +27,16 @@
 
         <div>
             <form onchange="filtre()" id="filtre">
+                <p>
+                    Veuillez saisir un prix minimum et un prix maximum
+                </p>
                 <label for="prixmin">Prix minimum</label>
                 <input type="text" name="prixmin" id="prixmin">
                 <label for="prixmax">Prix maximum</label>
                 <input type="text" name="prixmax" id="prixmax">
-                <input type="radio" name="PetitDej" id="PetitDej"><label for="PetitDej">Petit Déjeuner Compris</label>
-                <input type="radio" name="Animaux" id="Animaux"><label for="Animaux">Animaux acceptés</label>
+                <label for="PetitDej">Petit Déjeuner Compris</label>
+                <input type="checkbox" name="PetitDej" id="PetitDej" value="true">
+                <input type="checkbox" name="Animaux" id="Animaux" value="true"><label for="Animaux">Animaux acceptés</label>
             </form>
             
             <table id="tableau">

@@ -21,8 +21,6 @@ function Formulaire() {
     document.getElementById('description').innerHTML = desciption
     prixA = prix
     document.getElementById('id').value = TableauDesDestination[sejour_id-1][1]
-    console.log(document.getElementById('id').value)
-    console.log(TableauDesDestination[sejour_id-1][1])
     
 };
 
@@ -44,7 +42,6 @@ function jour(DateA, DateD) {
 };
 
 function CalculPrixParJour(NbA, NbE, Petitdej) {
-    console.log(prixA)
     if (Petitdej) {
         let prixparA =
             NbA * (prixA + 12)
@@ -58,7 +55,6 @@ function CalculPrixParJour(NbA, NbE, Petitdej) {
             NbA * prixA
         let prixparE =
             NbE * prixA * 0.4
-        console.log(prixparA)
         return (prixparA + prixparE)
     }
 };
@@ -115,7 +111,6 @@ function RemplissageFav() {
 }
 
 function Remplissage() {
-    console.log(TableauDesDestination.length)
     for (i = 0; i < TableauDesDestination.length; i++) {
         var tableaua = document.getElementById("tableau")
         var lignea = document.createElement("tr")
@@ -215,8 +210,7 @@ function MouseOver() {
     event = event || window.event;
     event.preventDefault();
     var id = document.getElementById("MapMonde");
-    var context = id.getContext("2d")
-    console.log(context)                            //Comment détecter le MouseOver au dessus d'une forme du canvas
+    var context = id.getContext("2d")                         //Comment détecter le MouseOver au dessus d'une forme du canvas
     var posX = event.pageX - context.offsetLeft;
     var posY = event.pageY - context.offsetTop;
     if ((posX, posY) in context.france) {
@@ -265,25 +259,60 @@ function recapitulatif() {
 function filtre() {
     var prixmin = document.getElementById("prixmin").value
     var prixmax = document.getElementById("prixmax").value
-    var PetitDej = document.getElementById("PetitDej").value
-    var Animaux = document.getElementById("Animaux").value
-
-    if (prixmax != "" && prixmin != "") {
+    var PetitDej = document.getElementById("PetitDej")
+    var Animaux = document.getElementById("Animaux")
 
         for (i = 0; i < TableauDesDestination.length; i++) {
+            if (prixmax != "" && prixmin != "") {
 
 
             if (TableauDesDestination[i][4] > prixmax || TableauDesDestination[i][4] < prixmin) {
-                console.log(prixmin)
-                console.log(prixmax)
                 var ligne = document.getElementById("ligne" + i)
                 ligne.style = "display:none;"
             }
             if (TableauDesDestination[i][4] < prixmax && TableauDesDestination[i][4] > prixmin) {
                 var ligne = document.getElementById("ligne" + i)
-                ligne.style = "display:contents;"
+                ligne.style = "display:block;"
+
+            }
+
+        }
+        if( PetitDej.checked == true && TableauDesDestination[i][8] == false){
+            var ligne = document.getElementById("ligne" + i)
+            ligne.style = "display:none;"
+            console.log(PetitDej.checked)
+        }
+        if( PetitDej.checked == false && TableauDesDestination[i][8] == true){
+            var ligne = document.getElementById("ligne" + i)
+            ligne.style = "display:none;"
+        }
+        if(PetitDej.checked == true && TableauDesDestination[i][8] == true){
+            if(Animaux.checked == true && TableauDesDestination[i][9] == true){
+                var ligne = document.getElementById("ligne" + i)
+                ligne.style = "display:block;"
+            }
+            if(Animaux.checked == false && TableauDesDestination[i][9] == false){
+                var ligne = document.getElementById("ligne" + i)
+                ligne.style = "display:block;"
             }
         }
-
+        if(PetitDej.checked == false && TableauDesDestination[i][8] == false){
+            if(Animaux.checked == true && TableauDesDestination[i][9] == true){
+                var ligne = document.getElementById("ligne" + i)
+                ligne.style = "display:block;"
+            }
+            if(Animaux.checked == false && TableauDesDestination[i][9] == false){
+                var ligne = document.getElementById("ligne" + i)
+                ligne.style = "display:block;"
+            }
+        }
+        if( Animaux.checked == true && TableauDesDestination[i][9] == false){
+            var ligne = document.getElementById("ligne" + i)
+            ligne.style = "display:none;"
+        }
+        if( Animaux.checked == false && TableauDesDestination[i][9] == true){
+            var ligne = document.getElementById("ligne" + i)
+            ligne.style = "display:none;"
+        }
     };
 };
